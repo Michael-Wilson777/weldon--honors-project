@@ -15,9 +15,10 @@ const Navigation = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const cartCount = useSelector((state) => state.cart.cartCount);
   const cartList = useSelector((state) => state.cart.items);
-  let total = cartList.reduce((previousValue, currentValue) => {
-    return previousValue + currentValue.price;
-  }, 0);
+  const cartTotal = useSelector((state) => state.cart.totalPrice);
+  // let total = cartList.reduce((previousValue, currentValue) => {
+  //   return previousValue + currentValue.price;
+  // }, 0);
   return (
     <Navbar dark sticky="top" expand="md">
       <NavbarBrand href="/">
@@ -42,12 +43,12 @@ const Navigation = () => {
           </NavItem>
           <NavItem>
             <NavLink to="cart">
-              Cart Items: {cartCount} Cart Total: {total}
+              Cart Items: {cartCount} Cart Total: {cartTotal}
             </NavLink>
           </NavItem>
-          <NavItem>
+          {/* <NavItem>
             <NavLink to="contact">Contact</NavLink>
-          </NavItem>
+          </NavItem> */}
         </Nav>
       </Collapse>
     </Navbar>

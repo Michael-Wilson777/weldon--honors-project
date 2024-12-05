@@ -11,7 +11,10 @@ const ItemCard = ({ item }) => {
     dispatch(deleteItem(item));
   };
   const addItemToCart = (item) => {
-    dispatch(addToCart(item))
+
+
+      dispatch(addToCart(item))
+    
   }
   return (
     <Card>

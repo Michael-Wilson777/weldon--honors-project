@@ -4,28 +4,26 @@ import { Col, Row } from "reactstrap";
 import ItemCard from "../components/ItemCard";
 import Admin from "../components/Admin";
 
-
 const ShopPage = () => {
-    const itemsList = useSelector((state) => state.items.items);
-   
+  const itemsList = useSelector((state) => state.items.items);
 
-    return (
-        <>
-        <h1>Shop</h1>
-        <Row>
-            {itemsList.map((item) => {
-                return (
-                    <Col>
-                        <ItemCard item={item} key={item.id} />
-                    </Col>
-                )
-            })}
-        </Row>
-        <Row>
-            <Admin />
-        </Row>
-        </>
-    )
+  return (
+    <>
+      <h1>Shop</h1>
+      <Row>
+        {itemsList.map((item, index) => {
+          return (
+            <Col>
+              <ItemCard item={item} key={index} />
+            </Col>
+          );
+        })}
+      </Row>
+      <Row>
+        <Admin />
+      </Row>
+    </>
+  );
 };
 
 export default ShopPage;
