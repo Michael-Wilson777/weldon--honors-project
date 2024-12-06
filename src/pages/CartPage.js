@@ -1,28 +1,29 @@
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, clearCart } from "../state/cartSlice";
-import { Col, Row, Button } from "reactstrap";
+import { Col, Row, Button, Container } from "reactstrap";
+import Navigation from "../components/Navigation";
+
 
 const CartPage = () => {
   const cartList = useSelector((state) => state.cart.cartItems);
-  const total = useSelector((state) => state.cart.totalPrice)
+  const total = useSelector((state) => state.cart.totalPrice);
   const dispatch = useDispatch();
   const removeItem = (item) => dispatch(removeFromCart(item));
-  // let total = cartList.reduce((previousValue, currentValue) => {
-  //   return previousValue + currentValue.price;
-  // }, 0);
   const submit = () => dispatch(clearCart());
 
   return (
     <>
+    <Navigation current='/cart' />
       <h1>Your Cart</h1>
 
-      {cartList.map((item, index) => {
-        const { name, price, img, qty,id } = item;
-
+      {cartList.map((item) => {
+        const { name, price, img, qty, id } = item;
 
         return (
-         
-            <Row key={index}>
+          
+          
+          <Container>
+          <Row key={id}>
             <Col>
               <img src={img} alt={name} />
             </Col>
@@ -33,11 +34,15 @@ const CartPage = () => {
               <Button onClick={() => removeItem(item)}>Remove</Button>
             </Col>
           </Row>
+          </Container>
+          
         );
       })}
+
       <Row>
         <h4>Total: ${total}</h4>
       </Row>
+
       <Button
         type="submit"
         onClick={() => {

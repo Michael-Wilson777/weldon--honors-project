@@ -39,10 +39,10 @@ const Navigation = () => {
             <NavLink to="education">Education</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="shop">Shop</NavLink>
+            <NavLink to="/shop">Shop</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="cart">
+            <NavLink to="/cart">
               Cart Items: {cartCount} Cart Total: {cartTotal}
             </NavLink>
           </NavItem>

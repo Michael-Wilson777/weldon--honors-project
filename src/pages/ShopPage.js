@@ -1,24 +1,18 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Col, Row } from "reactstrap";
-import ItemCard from "../components/ItemCard";
 import Admin from "../components/Admin";
+import ShopList from "../components/ShopList";
+import Navigation from "../components/Navigation";
 
 const ShopPage = () => {
   const itemsList = useSelector((state) => state.items.items);
 
   return (
     <>
+      <Navigation current='/shop' />
       <h1>Shop</h1>
-      <Row>
-        {itemsList.map((item, index) => {
-          return (
-            <Col>
-              <ItemCard item={item} key={index} />
-            </Col>
-          );
-        })}
-      </Row>
+        <ShopList itemsList={itemsList} />
       <Row>
         <Admin />
       </Row>

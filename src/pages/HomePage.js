@@ -1,9 +1,10 @@
+import Navigation from "../components/Navigation";
 
 
 const HomePage = () => {
   return (
     <>
-      
+      <Navigation current="/" />
       <h1>Weld On!</h1>
       <p>
         Welcome to Weld On! This is an informative and educational site with
