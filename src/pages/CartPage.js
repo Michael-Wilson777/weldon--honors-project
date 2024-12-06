@@ -16,13 +16,13 @@ const CartPage = () => {
     <>
       <h1>Your Cart</h1>
 
-      {cartList.map((item) => {
+      {cartList.map((item, index) => {
         const { name, price, img, qty,id } = item;
 
 
         return (
          
-            <Row>
+            <Row key={index}>
             <Col>
               <img src={img} alt={name} />
             </Col>
@@ -30,7 +30,7 @@ const CartPage = () => {
             <Col>{qty}</Col>
             <Col>${price}</Col>
             <Col>
-              <Button onClick={() => removeItem(item.id)}>Remove</Button>
+              <Button onClick={() => removeItem(item)}>Remove</Button>
             </Col>
           </Row>
         );
