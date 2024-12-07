@@ -14,13 +14,10 @@ import { NavLink } from "react-router-dom";
 const Navigation = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const cartCount = useSelector((state) => state.cart.cartCount);
-  const cartList = useSelector((state) => state.cart.items);
   const cartTotal = useSelector((state) => state.cart.totalPrice);
-  // let total = cartList.reduce((previousValue, currentValue) => {
-  //   return previousValue + currentValue.price;
-  // }, 0);
+
   return (
-    <Navbar dark sticky="top" expand="md">
+    <Navbar className='bg-dark' dark sticky="top" expand="md">
       <NavbarBrand href="/">
         <h1>Weld On!</h1>
       </NavbarBrand>
@@ -28,21 +25,16 @@ const Navigation = () => {
       <Collapse isOpen={menuOpen} navbar>
         <Nav navbar className="ms-auto">
           <NavItem>
-            <NavLink to="/">Home</NavLink>
+            <NavLink className='text-light nav-link' to="/">Home</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="information" className="nav-link">
-              Information
-            </NavLink>
+            <NavLink className='nav-link text-light' to="/message-board">Questions</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="education">Education</NavLink>
+            <NavLink className='text-light nav-link' to="/shop">Shop</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="/shop">Shop</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink to="/cart">
+            <NavLink className='text-light nav-link' to="/cart">
               Cart Items: {cartCount} Cart Total: {cartTotal}
             </NavLink>
           </NavItem>

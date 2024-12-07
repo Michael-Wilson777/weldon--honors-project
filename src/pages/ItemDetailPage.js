@@ -4,7 +4,6 @@ import { Container, Row } from "reactstrap";
 import { useParams } from "react-router-dom";
 import { selectItemById } from "../state/merchSlice";
 import ItemDetail from "../components/ItemDetail"; 
-import ShopList from "../components/ShopList";
 import Navigation from "../components/Navigation";
 
 
